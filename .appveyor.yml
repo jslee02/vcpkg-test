@@ -26,13 +26,10 @@ init:
 install:
   - if "%platform%"=="Win32" set VCPKG_ARCH=x86-windows
   - if "%platform%"=="x64"   set VCPKG_ARCH=x64-windows
- 
-  - vcpkg update
-  - dir C:\tools\vcpkg
-  - git pull
- 
+
   # install pacakges
   # ---- required dependencies: eigen3, libccd, fcl, assimp, boost
+  - vcpkg update
   - vcpkg install eigen3:%VCPKG_ARCH%
   - vcpkg install ccd:%VCPKG_ARCH%
   - vcpkg install fcl:%VCPKG_ARCH%
