@@ -15,6 +15,11 @@ environment:
       CMAKE_GENERATOR: -G"Visual Studio 15 2017 Win64"
       CMAKE_TOOLCHAIN: -T"LLVM-vs2015"
 
+    - image: Visual Studio 2017
+      platform: x64
+      CMAKE_GENERATOR: -G"Visual Studio 14 2015 Win64"
+      CMAKE_TOOLCHAIN: -T"LLVM-vs2014"
+
     - image: Visual Studio 2015
       platform: x64
       CMAKE_GENERATOR: -G"Visual Studio 14 2015 Win64"
