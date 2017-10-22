@@ -64,7 +64,7 @@ install:
   
   - cmd: md build
   - cmd: cd build
-  - cmd: cmake -G "%GENERATOR%" -DCMAKE_BUILD_TYPE=%configuration% "-DCMAKE_TOOLCHAIN_FILE=C:\projects\vcpkg\scripts\buildsystems\vcpkg.cmake" -T"%LLVM_TOOLCHAIN%" ..
+  - cmd: cmake -G "%GENERATOR%" -DCMAKE_BUILD_TYPE=%configuration% "-DCMAKE_TOOLCHAIN_FILE=C:\tools\vcpkg\scripts\buildsystems\vcpkg.cmake" -T"%LLVM_TOOLCHAIN%" ..
   
 # preserve contents of selected directories and files across project builds
 cache:
