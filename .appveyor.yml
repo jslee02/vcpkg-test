@@ -3,7 +3,7 @@ version: "{build}"
 
 # specify custom environment variables
 environment:
-  CMAKE_TOOLCHAIN_FILE=-DCMAKE_TOOLCHAIN_FILE="C:\tools\vcpkg\scripts\buildsystems\vcpkg.cmake"
+  CMAKE_TOOLCHAIN_FILE: -DCMAKE_TOOLCHAIN_FILE="C:\tools\vcpkg\scripts\buildsystems\vcpkg.cmake"
   matrix:
     - image: Visual Studio 2017
       platform: x64
