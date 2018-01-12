@@ -1,33 +1,20 @@
 # Specify version format
 version: "{build}"
 
+image: Visual Studio 2017
+
+platform: x64
+
 # specify custom environment variables
 environment:
   CMAKE_TOOLCHAIN_FILE: -DCMAKE_TOOLCHAIN_FILE="C:\tools\vcpkg\scripts\buildsystems\vcpkg.cmake"
   matrix:
-    - image: Visual Studio 2017
-      platform: x64
-      CMAKE_GENERATOR: -G"Visual Studio 15 2017 Win64"
-      CMAKE_TOOLCHAIN:
-      
-    - image: Visual Studio 2017
-      platform: x64
-      CMAKE_GENERATOR: -G"Visual Studio 15 2017 Win64"
-      CMAKE_TOOLCHAIN: -T"v140"
-      
-    - image: Visual Studio 2017
-      platform: x64
-      CMAKE_GENERATOR: -G"Visual Studio 15 2017 Win64"
-      CMAKE_TOOLCHAIN: -T"LLVM-vs2014"
-
-    - image: Visual Studio 2017
-      platform: x64
-      CMAKE_GENERATOR: -G"Visual Studio 15 2017 Win64"
-      CMAKE_TOOLCHAIN: -T"v140_clang_c2"
+    - CMAKE_GENERATOR: -G"Visual Studio 15 2017 Win64"
+      CMAKE_TOOLCHAIN: -T"v141"
 
 # build configuration, i.e. Debug, Release, etc.
 configuration:
-  #- Debug
+  - Debug
   - Release
 
 # scripts that are called at very beginning, before repo cloning
@@ -44,10 +31,10 @@ install:
   # ---- required dependencies: eigen3, libccd, fcl, assimp, boost
   - vcpkg update
   - vcpkg install eigen3:%VCPKG_ARCH%
-  - vcpkg install ccd:%VCPKG_ARCH%
-  - vcpkg install fcl:%VCPKG_ARCH%
-  - vcpkg install assimp:%VCPKG_ARCH%
-  - vcpkg install boost:%VCPKG_ARCH%
+  #- vcpkg install ccd:%VCPKG_ARCH%
+  #- vcpkg install fcl:%VCPKG_ARCH%
+  #- vcpkg install assimp:%VCPKG_ARCH%
+  #- vcpkg install boost:%VCPKG_ARCH%
   # ---- optional dependencies: nlopt, ipopt, bullet3, ode, flann, tinyxml2, urdfdom_headers, urdfdom, opengl, freeglut, osg
   #- vcpkg install nlopt:%VCPKG_ARCH%
   #- vcpkg install ipopt:%VCPKG_ARCH%
@@ -69,7 +56,6 @@ install:
   
 # preserve contents of selected directories and files across project builds
 cache:
-  - C:\tools\vcpkg\installed -> .appveyor.yml
-  - C:\tools\vcpkg\packages -> .appveyor.yml
+  #- C:\tools\vcpkg\installed -> .appveyor.yml
 
 build: off
